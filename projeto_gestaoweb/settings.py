@@ -26,7 +26,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+#DEBUG = True
+DEBUG = os.environ.get('DEBUG') == True
 
 #Crispy Forms
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
