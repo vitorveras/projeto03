@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+    <div class="container">
+        <h2>Livros</h2>
+        <br>
+        <a class="btn btn-success" href="{% url 'novo' %}" role="button">Novo</a>
+        <br>
+        <div>
+            <table class="table table-striped table-responsive table-sm">
+                <thead>
+                    <tr>
+                        <td>ID</td>
+                        <td>Nome</td>
+                        <td>Finalizado</td>
+                        <td>Resenha</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for livro in livros %}
+                    <tr>
+                        <td>{{ livro.id }}</td>
+                        <td>{{ livro.nome }}</td>
+                        <td>
+                        {% if livro.finalizado %}
+                            <input disabled type='checkbox' checked>
+                        {% else%}
+                            <input disabled type='checkbox'>
+                        {% endif %}
+                        </td>
+                        <td>{{ livro.resenha }}</td>
+                        <td><a class="btn btn-primary" href="{% url 'detalhes' livro.id %}" role="button">Detalhes</a></td>
+                        <td><a class="btn btn-warning" href="{% url 'editar' livro.id %}" role="button">Editar</a></td>
+                        <td><a class="btn btn-danger" href="{% url 'excluir' livro.id %}" role="button">Excluir</a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <br>
+        <h6>Endereço API: <a href="{% url 'listar_livros_api' %}">Link</a></h6>
+        <h6>Documentação API: <a href="livro/api/doc/">Link</a></h6>
+    </div>
+{% endblock %}

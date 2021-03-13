@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+    <div class="container">
+        <h2>Excluir</h2>
+        <br>
+        <div>
+            <form action="" method="post">
+                {% csrf_token %}
+                <h5>Confirmar a exclusão do item {{ livro.nome }}</h5>
+                <br>
+                <a class="btn btn-primary" href="{% url 'index' %}" role="button">Cancelar</a>
+                <input type="submit" class="btn btn-danger" value="Excluir">
+            </form>
+        </div>
+    </div>
+{% endblock %}

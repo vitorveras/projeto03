@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+    <div class="container">
+        <h2>Detalhes</h2>
+        <div>
+            <table class="table table-striped table-responsive table-sm">
+                <thead>
+                    <tr>
+                        <td>ID</td>
+                        <td>Nome</td>
+                        <td>Finalizado</td>
+                        <td>Resenha</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{ livro.id }}</td>
+                        <td>{{ livro.nome }}</td>
+                        <td>
+                        {% if livro.finalizado %}
+                            <input disabled type='checkbox' checked>
+                        {% else%}
+                            <input disabled type='checkbox'>
+                        {% endif %}
+                        </td>
+                        <td>{{ livro.resenha }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}
