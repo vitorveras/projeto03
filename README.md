@@ -7,5 +7,6 @@ Passos para rodar:
 
 Dica: Usando o python para gerar a chave
 
->>> import secrets
->>> secrets.token_hex(24)
+```python
+import secrets
+secrets.token_hex(24)
